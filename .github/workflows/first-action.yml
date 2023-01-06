@@ -2,11 +2,12 @@ name: First workflow
 on: push
 
 jobs:
+
   first-job:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16.x, 18.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -16,6 +17,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: install dependencies
-        run: npm install
+        run: npm ci
       - name: run test
         run: npm run test 
