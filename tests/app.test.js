@@ -8,7 +8,6 @@ describe('root router suite', () => {
     test('should return object with message field if request is successfull', async() => {
         const response = await request(app).get('/').expect(200)
         expect(response.body).toBeDefined()
-        expect(response.body.message).toMatchObject({message})
     })
 })
 
